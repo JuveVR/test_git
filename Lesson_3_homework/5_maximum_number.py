@@ -14,5 +14,3 @@ for number in user_numbers:
         highest = number
 
 print("The highest number is : " + str(highest))
-
-
