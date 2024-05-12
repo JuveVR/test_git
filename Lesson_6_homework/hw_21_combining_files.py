@@ -8,22 +8,18 @@
 
 import os
 
-my_garbage_bin = "/my/garbage/may"
+my_garbage_bin = "/Users/vadymr/python_project/python_lerning/Lesson_6_homework"
 
 # Create a file for appending
-combined_file = open("combined_files.txt", "a")
-
-# Iterate through my folder
-for root, dirs, files in os.walk(my_garbage_bin):
-    for my_file_name in files:
-        file_address = os.path.join(root, my_file_name)
-        # Check for text file and specified size
-        if filename.endswith('.txt') and os.path.getsize(file_address) <= 120:
-            my_file = open(file_address, "r")
-            file_content = text_file.read()
-            my_file.close()
-            # Write files names and content in new file
-            combined_file.write(f"Filename: {my_file_name }\nContent:\n{file_content}\n\n")
-
-combined_file.close()
-
+with open("combined_file_12.txt", "a") as combined_file:
+    # Iterate through my folder
+    for root, dirs, files in os.walk(my_garbage_bin):
+        for my_file_name in files:
+            file_address = os.path.join(root, my_file_name)
+            # Check for text file and specified size
+            if my_file_name.endswith('.txt') and os.path.getsize(file_address) <= 120:
+                my_file = open(file_address, "r")
+                file_content = my_file.read()
+                my_file.close()
+                # Write files names and content in new file
+                combined_file.write(f"Filename: {my_file_name }\nContent:\n{file_content}\n\n")
