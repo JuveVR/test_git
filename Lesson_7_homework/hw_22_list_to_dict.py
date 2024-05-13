@@ -14,23 +14,29 @@ my_list = [1, 2, 3, 4, 5, 7, 8]
 
 def lst2dict(lst):
     new_dict = {}
-    if len(lst) % 2 != 0:
-        lst.pop()
-    for i in range(0, len(lst), 2):
-        new_dict[lst[i]] = lst[i + 1]
+    iter_lst = lst[:]
+    if len(iter_lst) % 2 != 0:
+        iter_lst.pop()
+    for i in range(0, len(iter_lst), 2):
+        new_dict[iter_lst[i]] = iter_lst[i + 1]
     return new_dict
 
 
 print(lst2dict(my_list))
 
 
-# option 2 the same but with dict comprehension
+# option 2
+my_list_2 = [1, 2, 3, 4, 5, 7, 8]
+
+
 def lst2dict2(lst):
+    length = len(lst)
     if len(lst) % 2 != 0:
-        lst.pop()
-    new_dict_2 = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+        length -= 1
+    new_dict_2 = {lst[i]: lst[i + 1] for i in range(0, length, 2)}
     return new_dict_2
 
 
-print(lst2dict2(my_list))
+print(lst2dict2(my_list_2))
+
 
