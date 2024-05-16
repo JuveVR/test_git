@@ -13,13 +13,10 @@ def skip_if(condition, reason=""):
     def decorator(fun):
         def wrapper(*args, **kwargs):
             if condition:
-                if reason:
-                    print(reason)
+                print(reason)
                 return
-            try:
+            else:
                 return fun(*args, **kwargs)  # It works also without Return here, is it ok to use it without return?
-            except AssertionError:
-                print("Assertion Error")
         return wrapper
     return decorator
 
